@@ -1,0 +1,80 @@
+<!Doctype html>
+<html>
+    <head><title>Html5 Form</title>
+        <style>
+.textLayer{
+width:600px;
+height:400px;
+background-color:lightgrey;
+}
+#Text-field{border-color:palevioletred;}
+#Email-field1{border-color:palevioletred;}
+#Pwd-field2{border-color:palevioletred;}
+#Cpwd-field3{border-color:palevioletred;}
+#button{ border-color:darkblue;
+    color:darkblue;width:40%;
+font-weight:bold;}
+#text1 {float:left;color:white;}
+#text2 {float:right;color:white;
+
+background-color:darkblue;}
+#pwd {float:right;}
+#loginbutton {color:white;
+border-color:orange;
+background-color:darkblue;
+float:right;
+}
+#loginbutton{
+width:25%;}
+        </style>
+        <script>
+        /*To Store the values in LocalStorage*/
+        function saveInLocalStorage(){
+if (typeof(Storage) !== "undefined"){
+    var uname = document.getElementById('Text-field').value;
+    var email = document.getElementById('Email-field1').value;
+    var pwd = document.getElementById('Pwd-field2').value;
+    var cpwd = document.getElementById('Cpwd-field3').value;
+    localStorage.setItem("Text-field",uname);
+     localStorage.setItem("Email-field1",email);
+      localStorage.setItem("Pwd-field2",pwd);
+     localStorage.setItem("Cpwd-field3",cpwd);  
+}  };
+/*This function is used to get information from loaclstorage */
+function getNameFromLocalStorage(){
+    if(typeof(Storage) !== "undefined"){
+        var uname=localStorage.getItem("uname");
+        var Pwd=localStorage.getItem("pwd");
+       document.getElementById('form-register').elements["uname"];
+         document.getElementById('form-register').elements["pwd"];
+    }
+};
+        </script>
+    </head>
+    <body onload="getNameFromLocalStorage();">
+    <form id="form-register" method="post">
+         <div class="textLayer">
+<h1 style="color:darkblue"><b>Enter the system</b></h1>
+<p>It is necessary to login in your account in order to sign up for a course</p>
+<p style="color:gray">ARE YOU NEW? <span style="color:darkblue"><b>REGISTER</b></span></p>
+<label id="text1">
+&nbsp;&nbsp;&nbsp;<input required="" name="uname" placeholder="Username" type="text" id="Text-field"/><br>
+<br>&nbsp;&nbsp;&nbsp;<input required="" type="email" name="email" placeholder="Email"id="Email-field1"/><br>
+<br>&nbsp;&nbsp;&nbsp;<input required="" name="pwd" placeholder="Password" type="text"id="Pwd-field2"/><br>
+<br>&nbsp;&nbsp;&nbsp;<input required="" type="text" name="cpwd" placeholder="ConfirmPassword"id="Cpwd-field3"/><br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="saveInLocalStorage();"id="button">Register</button>
+</label>
+<!--Another form who has already Account-->   
+ <div id="registered-form">  
+        <label id="text2"> <h3>ALREADY A STUDENT? LOGIN</h3>
+       &nbsp;&nbsp;&nbsp;<input required="" type="text" placeholder="Username" id="uname"/><br>
+        <br>&nbsp;&nbsp;&nbsp;<input required="" type="text" placeholder="Password" id="Pwd"/><br>
+     <br>&nbsp;&nbsp;&nbsp;<input type="checkbox" value="Rememberme" id="rmber">Remember me?</input></span>
+        <span id="button1"><button onclick="getNameFromLocalStorage" id="loginbutton">Login</button>
+        <p id="pwd"><u>Forget Password?</u></p>
+        </label>
+        </div></div>
+        </form>  
+        </body>
+        </html>
